@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+a {
+    display: block;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white;
+    margin: 0 auto;
+    font-family: Arial;
+    line-height: 2;
+    border-radius: 10px;
+}
+
+div {
+    border-radius: 10px;
+}
+
+#grid_container {
+    margin: 0 auto;
+    background-color: rgba(128, 128, 128, 0.5);
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.grid {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(128, 128, 128, 0.8);
+}
