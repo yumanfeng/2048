@@ -18,51 +18,65 @@ function create_one_number() {
             break;
         }
     }
-    numbers[randx][randy] = random_number;
-    var grid = $('#grid_' + randx + '_' + randy);
-    grid.css({
-        'background-color': get_backgroundcolor(random_number)
-    });
-    grid.text(random_number);
+    show_number(randx, randy, random_number);
 }
-// 数字的背景颜色
-function get_backgroundcolor(a) {
-    switch (a) {
-        case 2:
-            return 'rgb(144,238,144)';
-            break;
-        case 4:
-            return 'rgb(255,140,105)';
-            break;
-        case 8:
-            return 'rgb(255,64,64)';
-            break;
-        case 16:
-            return 'rgb(255,48,48)';
-            break;
-        case 32:
-            return 'rgb(255,127,36)';
-            break;
-        case 64:
-            return 'rgb(255,165,79)';
-            break;
-        case 128:
-            return 'rgb(255,165,0)';
-            break;
-        case 256:
-            return 'rgb(255,127,0)';
-            break;
-        case 512:
-            return 'rgb(255,69,0)';
-            break;
-        case 1024:
-            return 'rgb(255,20,147)';
-            break;
-        case 2048:
-            return 'rgb(255,215,0)';
-            break;
-        default:
-            return 'rgb(220, 220, 220)';
+// 在i_j的位置显示number且显示number背景颜色
+function show_number(i, j, number) {
+    numbers[i][j] = number;
+    var grid = $('#grid_' + i + '_' + j);
+    grid.css({
+        'background-color': get_number_backgroundcolor(number),
+        // 'color':get_number_color(number)
+    });
+    if (number != 0) { // 不为0的时候显示数字
+        grid.text(number);
+    }else{     // 为0显示为空
+        grid.text("");
+    }
+    // grid.text(number);
+    // 取得数字颜色
+    // function get_number_color(number) {
+    //         return 'rgb(220, 220, 220)';
+    // }
+    // 数字的背景颜色
+    function get_number_backgroundcolor(number) {
+        switch (number) {
+            case 2:
+                return 'rgb(144,238,144)';
+                break;
+            case 4:
+                return 'rgb(255,140,105)';
+                break;
+            case 8:
+                return 'rgb(255,64,64)';
+                break;
+            case 16:
+                return 'rgb(255,48,48)';
+                break;
+            case 32:
+                return 'rgb(255,127,36)';
+                break;
+            case 64:
+                return 'rgb(255,165,79)';
+                break;
+            case 128:
+                return 'rgb(255,165,0)';
+                break;
+            case 256:
+                return 'rgb(255,127,0)';
+                break;
+            case 512:
+                return 'rgb(255,69,0)';
+                break;
+            case 1024:
+                return 'rgb(255,20,147)';
+                break;
+            case 2048:
+                return 'rgb(255,215,0)';
+                break;
+            default:
+                return 'rgb(220, 220, 220)';
+        }
     }
 }
 // 初始化棋盘
@@ -75,18 +89,18 @@ function init() {
             grid.text('');
             numbers[i][j] = 0;
             grid.css({
-                'top': get_top(j),
-                'left': get_left(i),
-                'background-color': get_backgroundcolor(numbers[i][j])
+                'top': get_top(i),
+                'left': get_left(j),
             });
+            show_number(i, j, numbers[i][j]);
         }
     }
 }
 // 相对于父元素的top
-function get_top(j) {
-    return grid_space + (grid_width + grid_space) * j + 'px';
+function get_top(i) {
+    return grid_space + (grid_width + grid_space) * i + 'px';
 }
 // 相对于父元素的left
-function get_left(i) {
-    return grid_space + (grid_width + grid_space) * i + 'px';
+function get_left(j) {
+    return grid_space + (grid_width + grid_space) * j + 'px';
 }

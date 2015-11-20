@@ -5,7 +5,7 @@ var grid_space = 20, // 格子间的间隔
 for (var i = 0; i < 4; i++) {
     numbers[i] = new Array();
     for (var j = 0; j < 4; j++) {
-        numbers[i][j] = 0;
+        numbers[i][j] = undefined;
     }
 }
 /*-----------------------------------*/
