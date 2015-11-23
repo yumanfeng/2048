@@ -1,8 +1,20 @@
 var have_moved = false; // 标记数字是否有移动
 var max = []; // 比较最大数数组
+var sum = 0; // 总分
 $(document).keydown(function(event) {
     move(event.keyCode);
+    set_score();
 });
+
+function set_score() {
+    sum = 0; // 将之前总分置0
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            sum += numbers[i][j]; // 将当前界面上的数都加起来
+        }
+    }
+    $('p').text('score: ' + sum);
+}
 // 数字向左移动
 function numbers_move_left() {
     for (var i = 0; i < 4; i++) {
@@ -256,7 +268,6 @@ function numbers_move_down() {
     }
 }
 
-
 function move(key_code) {
     var key = true; // 当按键为上下左右是才为true
     switch (key_code) {
@@ -292,13 +303,11 @@ function move(key_code) {
         have_moved = false; // 移动完毕后将是否移动标记还原
     }
 }
-
 // 游戏结束
-function is_game_over(){
-	if(!have_space() && !near_have_same_number()){
-		alert(is_fail);
-	}
-
+function is_game_over() {
+    if (!have_space() && !near_have_same_number()) {
+        alert(is_fail);
+    }
 }
 // 格子中是否还有空格
 function have_space() {
@@ -311,18 +320,18 @@ function have_space() {
     }
 }
 // 相邻的数字有相同的数字
-function near_have_same_number(){
-	for(var i = 0;i < 3;i++){ // 最后一行和最后一列不在此进行比较
-		for(var j = 0;j < 3;j++){
-			if(numbers[i][j] == numbers[i+1][j] || numbers[i][j] == numbers[i][j+1]){ // 与这个数的右边和下边的数作比较
-				return true;
-			}
-		}
-	}
-	for(var a = 0;a < 3;a++){ // 最后一行、最后一列的数字与其右边、下边的数作比较
-		if(numbers[a][3] == numbers[a+1][3] || numbers[3][a] == numbers[3][a+1]){
-			return true;
-		}
-	}
-	return false;
+function near_have_same_number() {
+    for (var i = 0; i < 3; i++) { // 最后一行和最后一列不在此进行比较
+        for (var j = 0; j < 3; j++) {
+            if (numbers[i][j] == numbers[i + 1][j] || numbers[i][j] == numbers[i][j + 1]) { // 与这个数的右边和下边的数作比较
+                return true;
+            }
+        }
+    }
+    for (var a = 0; a < 3; a++) { // 最后一行、最后一列的数字与其右边、下边的数作比较
+        if (numbers[a][3] == numbers[a + 1][3] || numbers[3][a] == numbers[3][a + 1]) {
+            return true;
+        }
+    }
+    return false;
 }

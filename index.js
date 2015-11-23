@@ -16,4 +16,5 @@ for (var i = 0; i < 4; i++) {
 /*-----------------------------------*/
 $(document).ready(function() {
     new_game();
+    set_score();
 });

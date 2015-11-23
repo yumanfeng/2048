@@ -4,6 +4,7 @@ function new_game() {
     // 随机一个位置产生一个随机数字
     create_one_number();
     create_one_number();
+    set_score();
 }
 // 随机一个位置产生随机数字
 function create_one_number() {
