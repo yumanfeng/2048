@@ -26,19 +26,20 @@ function show_number(i, j, number) {
     var grid = $('#grid_' + i + '_' + j);
     grid.css({
         'background-color': get_number_backgroundcolor(number),
+        'font-size': get_number_font_size(number),
         // 'color':get_number_color(number)
     });
     if (number != 0) { // 不为0的时候显示数字
         grid.text(number);
-    }else{     // 为0显示为空
+    } else { // 为0显示为空
         grid.text("");
     }
-    // grid.text(number);
-    // 取得数字颜色
-    // function get_number_color(number) {
-    //         return 'rgb(220, 220, 220)';
-    // }
-    // 数字的背景颜色
+    // grid.animate({
+    //     width: grid_width + 'px',
+    //     height: grid_width + 'px',
+    //     left: get_left(j),
+    //     top: get_top(i)},1000);
+    // 获取数字的背景颜色
     function get_number_backgroundcolor(number) {
         switch (number) {
             case 2:
@@ -77,6 +78,11 @@ function show_number(i, j, number) {
             default:
                 return 'rgb(220, 220, 220)';
         }
+    }
+    function get_number_font_size(number){
+        var m = number.toString().length;  // 算出number为一个几位数
+        return 5-(m-1) +'em';
+
     }
 }
 // 初始化棋盘
