@@ -13,7 +13,7 @@ function set_score() {
             sum += numbers[i][j]; // 将当前界面上的数都加起来
         }
     }
-    $('p').text('score: ' + sum);
+    $('#score').text('score: ' + sum);
 }
 // 数字向左移动
 function numbers_move_left() {
@@ -290,7 +290,7 @@ function move(key_code) {
         // 显示移动后的数组
         for (var i = 0; i < 4; i++) {
             for (var j = 0; j < 4; j++) {
-                show_number(i, j, numbers[i][j]);
+                show_number(i, j);
                 if (last_numbers[i][j] != numbers[i][j]) { // 判断移动前和移动后是否有数字变化
                     have_moved = true;
                 }

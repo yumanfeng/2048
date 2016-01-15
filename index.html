@@ -8,13 +8,12 @@
         <script type="text/javascript" src="index.js"></script>
         <script type="text/javascript" src="new_game.js"></script>
         <script type="text/javascript" src="move.js"></script>
-
     </head>
     <body>
         <header>
             <h1>2048(by-Manman)</h1>
-            <a href="javascript:new_game();">New Game</a>
-            <p>score: 0</p>
+            <a href="javascript:new_game();" id="new_game">New Game</a>
+            <p id="score">score: 0</p>
         </header>
         <div id="grid_container">
             <div class="grid" id="grid_0_0"></div>
@@ -34,5 +33,11 @@
             <div class="grid" id="grid_3_2"></div>
             <div class="grid" id="grid_3_3"></div>
         </div>
+        <!-- <div id="result">
+            <div>
+                <p>congratulation！</p>
+                <a href="">try again</a>
+            </div>
+        </div> -->
     </body>
 </html>

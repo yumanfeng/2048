@@ -9,7 +9,7 @@ header {
     text-align: center;
 }
 
-a {
+#new_game {
     display: block;
     width: 100px;
     height: 30px;
@@ -21,8 +21,9 @@ a {
     line-height: 2;
     border-radius: 10px;
 }
-a:hover{
-	font-weight: bold;
+
+a:hover {
+    font-weight: bold;
 }
 
 div {
@@ -46,4 +47,22 @@ div {
     font-size: 5em;
     line-height: 100px;
     color: white;
+}
+
+#result {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    filter: alpha(opacity=90);
+    /*支持 IE 浏览器*/
+    -moz-opacity: 0.90;
+    /*支持 FireFox 浏览器*/
+    opacity: 0.90;
+    /*支持 Chrome, Opera, Safari 等浏览器*/
+    background-color: #000;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    border-radius: 0px;
 }
